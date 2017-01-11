@@ -6,7 +6,10 @@
   "scripts": {
     "start": "rimraf dist && NODE_ENV=development node bin/server.js",
     "start:prod": "NODE_ENV=production node bin/server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "api": "NODE_ENV=development nodemon --watch api bin/api.js",
+    "api:prod": "NODE_ENV=production node bin/api.js",
+    "test": "NODE_PATH=./app mocha --require ./bin/test.js 'app/**/*spec.js'",
+    "test:watch": "npm run test -- --watch"
   },
   "repository": {
     "type": "git",
@@ -107,6 +110,9 @@
   },
   "dependencies": {
     "babel-preset-react-hmre": "1.1.1",
+    "config": "^1.24.0",
+    "crypto": "0.0.3",
+    "lodash": "^4.17.4",
     "react": "15.3.0",
     "react-redux": "4.4.5",
     "redux-batched-subscribe": "0.1.6"

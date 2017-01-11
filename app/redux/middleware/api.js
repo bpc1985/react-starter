@@ -1,18 +1,21 @@
 // Api middleware
-// See in /app/redux/modules/posts.js apiGetPosts
+// See in /app/redux/modules/tasks.js apiGetTasks
 
 import request from 'superagent-bluebird-promise';
 import { API_URL } from '../../constants';
 
 const apiMiddleware = store => next => action => {
   if (action.url) {
+    const authHeader = localStorage.token ? `Bearer ${localStorage.token}` : '';
     // Generate promise
     const requestPromise = action.mode === 'GET'
       ? request.get(API_URL + action.url)
+        .set('authorization', authHeader)
         .query({ // add query (if get)
           ...action.data,
         })
       : request.post(API_URL + action.url)
+        .set('authorization', authHeader)
         .send({ // add body (if post)
           ...action.data,
         });

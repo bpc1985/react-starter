@@ -13,9 +13,10 @@ if (__CLIENT__) {
 }
 
 @connect(
-  state => ({ ...state.app }),
+  state => ({ ...state.app, ...state.auth }),
   dispatch => bindActionCreators({
     ...actionCreators.app,
+    ...actionCreators.auth,
   }, dispatch),
 )
 export default class Root extends Component {
@@ -27,6 +28,8 @@ export default class Root extends Component {
     history: PropTypes.object,
     spinnerAsyncPage: PropTypes.bool,
     hideSpinnerAsyncPage: PropTypes.func,
+    apiPostLogout: PropTypes.func,
+    token: PropTypes.string,
   };
 
   componentDidMount() {
@@ -46,11 +49,11 @@ export default class Root extends Component {
   }
 
   render() {
-    const { spinnerAsyncPage } = this.props;
+    const { spinnerAsyncPage, token, apiPostLogout } = this.props;
 
     return (
       <section>
-        <Header />
+        <Header loggedIn={!!token} logout={apiPostLogout} />
         {
           spinnerAsyncPage
             ? <Loading /> // show spinner for async component
