@@ -1,8 +1,6 @@
 React Starter
 =========================
 
----
-
 ## About
 
 - [React](https://facebook.github.io/react/)
