@@ -1,0 +1,20 @@
+{
+  "name": "React starter",
+  "description": "React starter",
+  "repository": "https://github.com/nhtera/react-starter",
+  "keywords": ["node", "redux", "auth", "react", "token", "authentication", "user"],
+  "env": {
+    "NODE_ENV": {
+      "description": "Disable debug + hot reload for production.",
+      "value": "production"
+    },
+    "NODE_PATH": {
+      "description": "The root for absolute import statements.",
+      "value": "./"
+    },
+    "NPM_CONFIG_PRODUCTION": {
+      "description": "Allow webpack to run the build on deploy.",
+      "value": false
+    }
+  }
+}
