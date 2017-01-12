@@ -9,7 +9,9 @@
     "api": "NODE_ENV=development nodemon --watch api bin/api.js",
     "api:prod": "NODE_ENV=production node bin/api.js",
     "test": "NODE_PATH=./app mocha --require ./bin/test.js 'app/**/*spec.js'",
-    "test:watch": "npm run test -- --watch"
+    "test:watch": "npm run test -- --watch",
+    "build": "rimraf dist && NODE_ENV=production webpack --progress --verbose --display-error-details --config webpack/common.config.js",
+    "build:analyze": "NODE_ENV=production webpack --json --config webpack/common.config.js | webpack-bundle-size-analyzer > logs/build-analyze.log"
   },
   "repository": {
     "type": "git",
