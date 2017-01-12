@@ -1,8 +1,6 @@
 React Starter
 =========================
 
----
-
 ## About
 
 - [React](https://facebook.github.io/react/)
@@ -56,7 +54,6 @@ hint: use this mode for development
 ```$ npm run start:prod```
 
 after: open 'http://localhost' in browser<br /><br />
-hint: use this mode for production on server (without server-side-rendering)
 
 ## Run tests
 
